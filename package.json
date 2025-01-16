@@ -31,6 +31,7 @@
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.6",
 		"prettier-plugin-tailwindcss": "^0.6.5",
+		"supabase": "^2.6.8",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"sveltekit-superforms": "^2.22.1",
@@ -42,7 +43,8 @@
 		"zod": "^3.24.1"
 	},
 	"dependencies": {
-		"@supabase/supabase-js": "^2.47.14",
+		"@supabase/ssr": "^0.5.2",
+		"@supabase/supabase-js": "2.47.15",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15"
