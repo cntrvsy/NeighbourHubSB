@@ -1,4 +1,4 @@
-import { SignInSchema, SignUpSchema } from '$lib/schemas.js';
+import { SignInSchema, SignUpSchema } from '$lib/types/schemas';
 import { redirect } from '@sveltejs/kit'
 import { fail, error } from '@sveltejs/kit';
 import { AuthApiError } from '@supabase/supabase-js';
