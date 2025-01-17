@@ -1,5 +1,6 @@
 <script>
     import { invalidate } from '$app/navigation'
+	import SupabaseSignOut from '$lib/components/SupabaseSignOut.svelte';
     import { onMount } from 'svelte'
   
     let { data, children } = $props()
@@ -16,4 +17,12 @@
     })
 </script>
   
+<header>
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+  <SupabaseSignOut {supabase}/>
+</header>
+<main>
   {@render children()}
+</main>

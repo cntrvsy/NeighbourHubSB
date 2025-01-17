@@ -5,9 +5,9 @@
 
 <script lang="ts" generics="T extends Record<string, unknown>, M">
     //@ts-nocheck
-    import { getToastStore } from '@skeletonlabs/skeleton';
+    // import { getToastStore } from '@skeletonlabs/skeleton';
     
-    const toastStore = getToastStore();
+    // const toastStore = getToastStore();
 
     import SuperDebug, { superForm } from 'sveltekit-superforms';
     import type { SuperValidated } from 'sveltekit-superforms';
@@ -26,20 +26,22 @@
                 text: result?.error?.message,
                 status: 500
             }
-            const t: ToastSettings = {
-                    message: 'Something went wrong'
-                };
-                toastStore.trigger(t)
+            // const t: ToastSettings = {
+            //         message: 'Something went wrong'
+            //     };
+            //     toastStore.trigger(t)
 
+            console.log("something went wrong")
         },
         onUpdated({ form }) {
             if (form.valid) {
                 // Successful post! Do some more client-side stuff.
-                const t: ToastSettings = {
-                    message: 'Communicating with Server...'
-                };
-                toastStore.trigger(t)
-                
+                // const t: ToastSettings = {
+                //     message: 'Communicating with Server...'
+                // };
+                // toastStore.trigger(t)
+
+                console.log("form is valid")
                 // redirect to what was given.
                 
             }

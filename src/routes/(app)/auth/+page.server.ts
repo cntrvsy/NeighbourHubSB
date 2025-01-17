@@ -1,4 +1,5 @@
 import { SignInSchema, SignUpSchema } from '$lib/types/schemas';
+import { supabaseLib } from "$lib/supabaseClient";
 import { redirect } from '@sveltejs/kit'
 import { fail, error } from '@sveltejs/kit';
 import { AuthApiError } from '@supabase/supabase-js';
@@ -6,10 +7,8 @@ import { superValidate, message } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import type { Actions } from './$types';
 
-export const load = async ({ locals: { getSession } }) => {
-  // Get user session
-  const session = await getSession();
-  
+export const load = async ({ locals: { session} }) => {
+
   // if the user is already logged take them straight to the users page
   if (session) {
     console.log("hey you, lets get inside")
@@ -29,7 +28,7 @@ export const load = async ({ locals: { getSession } }) => {
 }
 
 export const actions = {
-  signIn: async ({ request, locals: { supabase} }) => {
+  signIn: async ({ request, locals: { supabase } }) => {
     const signIn_Form = await superValidate(request, zod(SignInSchema));
 
     console.log('Sign In', signIn_Form);
@@ -60,11 +59,12 @@ export const actions = {
         }
 
         // Successful sign-In, update the store and dispatch custom event.
-        redirect(303, '/users')
+        redirect(303, '/Portal')
       //return message(signIn_Form, {text: 'benin posted, refresh the page'});
     }
   },
   signUp: async ({ request, locals: { supabase} }) => {
+    const sb = supabaseLib;
     const signUp_Form = await superValidate(request, zod(SignUpSchema));
 
     console.log('Sign Up', signUp_Form);
@@ -77,7 +77,7 @@ export const actions = {
         const { email, password } = signUp_Form.data;
 
         // sending it to supabase
-        const { error } = await supabase.auth.signUp({
+        const { error } = await sb.auth.signUp({
           email,
           password
         })

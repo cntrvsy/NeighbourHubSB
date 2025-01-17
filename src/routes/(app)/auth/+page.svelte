@@ -1,27 +1,31 @@
 <script lang="ts">
     // @ts-nocheck
-    import SuperForm from '$lib/components/Form.svelte';
-    import TextField from '$lib/components/TextField.svelte';
+    import SuperForm from '$lib/components/superforms/Form.svelte';
+    import TextField from '$lib/components/superforms/TextField.svelte';
     import { fly,fade } from 'svelte/transition';
     
-    export let data
+    // export let data
 
-    let { session, supabase, SignIn_Form, SignUp_Form } = data;
-    $: ({ session, supabase, SignIn_Form, SignUp_Form } = data);
+    // let { session, supabase, SignIn_Form, SignUp_Form } = data;
+    // $: ({ session, supabase, SignIn_Form, SignUp_Form } = data);
+
+    let { data } = $props()
+    let { session, supabase, SignIn_Form, SignUp_Form } = $derived(data)
 
     
-      let componentState = 'SignIn';
-      // tiny state machine
-      const componentStates = {
-        SignUp: 'SignUp',
-        SignIn: 'SignIn',
-      }
-      // handles the switching between the two forms 
-      function toggleSign_State(state:string) {
-        componentState = state;
-        console.log("changed to")
-        console.log(componentState)
-      }
+    let componentState = $state('SignIn');
+
+    // tiny state machine
+    const componentStates = {
+      SignUp: 'SignUp',
+      SignIn: 'SignIn',
+    }
+    // handles the switching between the two forms 
+    function toggleSign_State(state:string) {
+      componentState = state;
+      console.log("changed to")
+      console.log(componentState)
+    }
 </script>
       
      
@@ -46,7 +50,7 @@
                 <br/>
 
                 <!-- toggle to Sign Up -->
-                <button class="btn variant-ghost-secondary" on:click={() => toggleSign_State("SignUp")}> don't have an account? </button>
+                <button class="btn variant-ghost-secondary" onclick={() => toggleSign_State("SignUp")}> don't have an account? </button>
               </div>
                 <div class="side-line lg:w-2/6 md:w-1/2 0 flex flex-col md:ml-auto w-full mt-10 md:mt-0 ">
                   <!-- super form Sign In -->
@@ -97,7 +101,7 @@
                 <br/>
 
                 <!-- toggle to Sign in -->
-                <button class="btn variant-ghost-secondary" on:click={() => toggleSign_State("SignIn")}>Already have an account? </button>
+                <button class="btn variant-ghost-secondary" onclick={() => toggleSign_State("SignIn")}>Already have an account? </button>
               </div>
                 <div class="side-line lg:w-2/6 md:w-1/2 0 flex flex-col md:ml-auto w-full mt-10 md:mt-0 ">
                   <!-- super form Sign Up -->
