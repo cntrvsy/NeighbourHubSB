@@ -27,6 +27,8 @@ const supabase: Handle = async ({ event, resolve }) => {
     },
   })
 
+  //console.log('supabase', event.locals.supabase)
+
   /**
    * Unlike `supabase.auth.getSession()`, which returns the session _without_
    * validating the JWT, this function also calls `getUser()` to validate the
@@ -48,6 +50,9 @@ const supabase: Handle = async ({ event, resolve }) => {
       // JWT validation has failed
       return { session: null, user: null }
     }
+
+    //console.log('user', user)
+    //console.log('session', session)
 
     return { session, user }
   }

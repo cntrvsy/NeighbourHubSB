@@ -1,5 +1,4 @@
 import { SignInSchema, SignUpSchema } from '$lib/types/schemas';
-import { supabaseLib } from "$lib/supabaseClient";
 import { redirect } from '@sveltejs/kit'
 import { fail, error } from '@sveltejs/kit';
 import { AuthApiError } from '@supabase/supabase-js';
@@ -11,8 +10,8 @@ export const load = async ({ locals: { session} }) => {
 
   // if the user is already logged take them straight to the users page
   if (session) {
-    console.log("hey you, lets get inside")
-    console.log("session",session)
+    //console.log("hey you, lets get inside")
+    //console.log("session",session)
     throw redirect(303, '/Portal')
   }
 
@@ -43,7 +42,7 @@ export const actions = {
         const { email, password } = signIn_Form.data;
 
         // sending it to supabase
-        const { error } = await supabaseLib.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
           email,
           password,
         })
@@ -64,8 +63,8 @@ export const actions = {
       //return message(signIn_Form, {text: 'benin posted, refresh the page'});
     }
   },
-  signUp: async ({ request, locals: { supabase} }) => {
-    const sb = supabaseLib;
+  signUp: async ({ request, locals: { supabase } }) => {
+  
     const signUp_Form = await superValidate(request, zod(SignUpSchema));
 
     console.log('Sign Up', signUp_Form);
@@ -78,7 +77,7 @@ export const actions = {
         const { email, password } = signUp_Form.data;
 
         // sending it to supabase
-        const { error } = await sb.auth.signUp({
+        const { error } = await supabase.auth.signUp({
           email,
           password
         })
