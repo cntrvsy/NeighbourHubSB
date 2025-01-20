@@ -12,7 +12,8 @@ export const load = async ({ locals: { session} }) => {
   // if the user is already logged take them straight to the users page
   if (session) {
     console.log("hey you, lets get inside")
-    throw redirect(303, '/users')
+    console.log("session",session)
+    throw redirect(303, '/Portal')
   }
 
   //return { url: url.origin }
@@ -42,7 +43,7 @@ export const actions = {
         const { email, password } = signIn_Form.data;
 
         // sending it to supabase
-        const { error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabaseLib.auth.signInWithPassword({
           email,
           password,
         })
