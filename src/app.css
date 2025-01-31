@@ -1,3 +1,38 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss";
+
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+    name: "HOA_Light";
+    default: true;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(100.00% 0.000 0);
+    --color-base-200: oklch(96.45% 0.014 88.68);
+    --color-base-300: oklch(92.19% 0.000 0);
+    --color-base-content: oklch(30.52% 0.000 0);
+    --color-primary: oklch(38.68% 0.119 252.90);
+    --color-primary-content: oklch(98% 0.031 120.757);
+    --color-secondary: oklch(62.96% 0.052 238.23);
+    --color-secondary-content: oklch(100% 0 0);
+    --color-accent: oklch(75.16% 0.147 83.99);
+    --color-accent-content: oklch(30.52% 0.000 0);
+    --color-neutral: oklch(87.65% 0.011 226.00);
+    --color-neutral-content: oklch(30.52% 0.000 0);
+    --color-info: oklch(65.52% 0.110 212.17);
+    --color-info-content: oklch(30.52% 0.000 0);
+    --color-success: oklch(64.01% 0.175 146.74);
+    --color-success-content: oklch(26% 0.065 152.934);
+    --color-warning: oklch(79.72% 0.164 69.62);
+    --color-warning-content: oklch(30.52% 0.000 0);
+    --color-error: oklch(59.15% 0.202 21.24);
+    --color-error-content: oklch(28% 0.109 3.907);
+    --radius-selector: 0.25rem;
+    --radius-field: 1rem;
+    --radius-box: 0.25rem;
+    --size-selector: 0.3125rem;
+    --size-field: 0.3125rem;
+    --border: 0.5px;
+    --depth: 1;
+    --noise: 1;
+  }
