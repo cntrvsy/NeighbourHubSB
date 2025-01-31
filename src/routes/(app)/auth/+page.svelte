@@ -3,11 +3,7 @@
     import SuperForm from '$lib/components/superforms/Form.svelte';
     import TextField from '$lib/components/superforms/TextField.svelte';
     import { fly,fade } from 'svelte/transition';
-    
-    // export let data
-
-    // let { session, supabase, SignIn_Form, SignUp_Form } = data;
-    // $: ({ session, supabase, SignIn_Form, SignUp_Form } = data);
+  
 
     let { data } = $props()
     let { session, supabase, SignIn_Form, SignUp_Form } = $derived(data)

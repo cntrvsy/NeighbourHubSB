@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	type T = Record<string, unknown>;
 </script>
 
@@ -6,12 +6,23 @@
 	import { formFieldProxy } from 'sveltekit-superforms';
 	import type { SuperForm, FormPathLeaves } from 'sveltekit-superforms';
 
-	let _class = '';
-	export { _class as class };
+	
 
-	export let label = '';
-	export let field : FormPathLeaves<T>;
-	export let form : SuperForm<T>;
+    interface Props {
+        class?: string;
+        label?: string;
+        field: FormPathLeaves<T>;
+        form: SuperForm<T>;
+        [key: string]: any
+    }
+
+    let {
+        class: _class = '',
+        label = '',
+        field,
+        form,
+        ...rest
+    }: Props = $props();
 
 	const { value, errors, constraints } = formFieldProxy(form, field);
 </script>
@@ -20,6 +31,7 @@
         <label class="label text-lg" for={field}>{label}</label>
     {/if}
     <div class="control space-y-4">
+        <!-- svelte-ignore element_invalid_self_closing_tag -->
         <textarea
         rows="3" 
         class={"textarea pl-4"+ _class} 
@@ -28,8 +40,8 @@
             placeholder=""
             bind:value={$value}  
             {...$constraints}  
-            {...$$restProps}
-        />    
+            {...rest}
+></textarea>    
     </div>
     {#if $errors}
         <p class="text-sm text-error-700 py-1">{$errors}</p>

@@ -1,9 +1,9 @@
 //@ts-nocheck
 
-import { supabaseLib } from "$lib/supabaseClient";
+//import { supabaseLib } from "$lib/supabaseClient";
 import type { Load } from "@sveltejs/kit";
 
-export const load: Load = async ({ url }) => {
+export const load: Load = async ({ url, locals: { supabase } }) => {
     const code = url.searchParams.get('code');
     console.log("code is:", code);
     const supabase = supabaseLib;

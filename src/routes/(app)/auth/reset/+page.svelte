@@ -11,12 +11,12 @@
     //         message: message,
     //     }
     //     toastStore.trigger(t)
-    // }
     
-    export let data;
-    let { supabase } = data
+
+    let { data } = $props()
+    let { supabase } = $derived(data)
     
-    let email:string;
+    let email:string = $state("");
     const customMessage:string = "Check your E-mail to continue to change your Password." 
     
     const handlePasswordRecovery = async() => {
@@ -48,7 +48,7 @@
             </p>
             <div class="flex justify-center">
                 <div class="card p-4 w-full text-token space-y-4">
-                    <form on:submit={()=>handlePasswordRecovery()}>
+                    <form onsubmit={()=>handlePasswordRecovery()}>
                         <label class="label py-2">
                             <input name="email" bind:value="{email}" class="input pl-4"/>
                         </label>

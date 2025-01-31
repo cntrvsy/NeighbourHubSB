@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
     type T = Record<string, unknown>;
   </script>
   
@@ -6,9 +6,21 @@
     import { formFieldProxy } from 'sveltekit-superforms';
     import type { SuperForm, FormPathLeaves } from 'sveltekit-superforms';
   
-    export let label = '';
-    export let field: FormPathLeaves<T>;
-    export let form: SuperForm<T>;
+  interface Props {
+    label?: string;
+    field: FormPathLeaves<T>;
+    form: SuperForm<T>;
+    children?: import('svelte').Snippet;
+    [key: string]: any
+  }
+
+  let {
+    label = '',
+    field,
+    form,
+    children,
+    ...rest
+  }: Props = $props();
   
     const { value, errors, constraints } = formFieldProxy(form, field);
   </script>
@@ -23,9 +35,9 @@
       aria-invalid={$errors ? 'true' : undefined}
       bind:value={$value}
       {...$constraints}
-      {...$$restProps}
+      {...rest}
     >
-     <slot></slot>
+     {@render children?.()}
     </select>
   </div>
   {#if $errors}

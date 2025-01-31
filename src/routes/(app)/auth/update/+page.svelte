@@ -2,17 +2,17 @@
 import { goto } from '$app/navigation';
 import upt from '$lib/assets/upt.svg'
 // we are able to access session and supabase from data
-import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+//import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 	import { redirect } from '@sveltejs/kit';
 
-const toastStore = getToastStore();
+// const toastStore = getToastStore();
 
-export const showToast = (message:string) => {
-    const t:ToastSettings = {
-        message: message,
-    }
-    toastStore.trigger(t)
-}
+// export const showToast = (message:string) => {
+//     const t:ToastSettings = {
+//         message: message,
+//     }
+//     toastStore.trigger(t)
+// }
 
 export let data;
 let { supabase } = data
@@ -27,12 +27,12 @@ const handleUpdateUser = async() => {
         email:email,
         password:password
     })        
-    showToast(customMessage);
+    // showToast(customMessage);
     //redirect(301, '/auth')
 
     } catch (error) {
     console.log(error)
-    showToast("Something went wrong")
+    // showToast("Something went wrong")
     }
     
     

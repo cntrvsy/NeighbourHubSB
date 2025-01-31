@@ -1,20 +1,32 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	type T = Record<string, unknown>;
 </script>
 
 <script lang="ts" generics="T extends Record<string, unknown>">
+	//import { run } from 'svelte/legacy';
+
 	import { formFieldProxy } from 'sveltekit-superforms';
 	import type { SuperForm, FormPathLeaves, FormPathType } from 'sveltekit-superforms';
 
-	export let field: FormPathLeaves<T>;
-	export let value: FormPathType<T, typeof field>
-	export let form: SuperForm<T>;
+	interface Props {
+		field: FormPathLeaves<T>;
+		value: FormPathType<T, typeof field>;
+		form: SuperForm<T>;
+	}
+
+	let { field, value, form }: Props = $props();
 
 	// Proxy form field state
 	const { value: formValue, constraints } = formFieldProxy(form, field);
 
 	// Update the form field with the provided value
-	$: formValue.set(value);
+	// run(() => {
+	// 	formValue.set(value);
+	// });
+	$effect.pre(() => {
+		formValue.set(value);
+	});
+
 </script>
   
   <input

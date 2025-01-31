@@ -3,7 +3,7 @@
     import { goto } from "$app/navigation";
     import { error } from "@sveltejs/kit";
 
-    let supabase = $props();
+    let {supabase} = $props();
 
     async function handleSignOut() {
         try {
