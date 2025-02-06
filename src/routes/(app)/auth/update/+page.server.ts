@@ -6,7 +6,6 @@ import type { Load } from "@sveltejs/kit";
 export const load: Load = async ({ url, locals: { supabase } }) => {
     const code = url.searchParams.get('code');
     console.log("code is:", code);
-    const supabase = supabaseLib;
 
     try{
         const {data, error } = await supabase.auth.exchangeCodeForSession({code});
