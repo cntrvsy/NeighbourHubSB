@@ -15,7 +15,7 @@
 }
 
 .wave {
-  background: url('$lib/assets/ui/wave.svg') repeat-x;
+  background: url('$lib/assets/wave.svg') repeat-x;
   position: absolute;
   width: 6400px;
   top: -198px;
