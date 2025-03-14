@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {Facebook, Twitter} from 'lucide-svelte'
+   
 </script>
 
 <footer>
@@ -13,12 +13,12 @@
         </p>
         <!-- social media -->
         <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a href="/" class="px-2 text-our-white">
+            <!-- <a href="/" class="px-2 text-our-white">
                 <Facebook strokeWidth = {1}/>
-            </a>
-            <a href="/" class="px-2 text-our-white">
+            </a> -->
+            <!-- <a href="/" class="px-2 text-our-white">
                 <Twitter strokeWidth = {1}/>
-            </a>
+            </a> -->
         </span>
 
     </div>

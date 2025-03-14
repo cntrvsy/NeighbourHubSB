@@ -23,6 +23,7 @@
 		"@sveltejs/kit": "^2.16.1",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"autoprefixer": "^10.4.20",
+		"daisyui": "^5.0.3",
 		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
@@ -43,12 +44,14 @@
 		"zod": "^3.24.1"
 	},
 	"dependencies": {
+		"@fontsource/hind": "^5.2.5",
+		"@fontsource/libre-baskerville": "^5.2.5",
 		"@supabase/ssr": "^0.5.2",
 		"@supabase/supabase-js": "^2.48.1",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@tailwindcss/vite": "^4.0.4",
-		"daisyui": "^5.0.0-beta.7"
+		"lucide-svelte": "^0.479.0"
 	}
 }

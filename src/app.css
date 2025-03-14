@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@import '@fontsource/libre-baskerville';
+@import '@fontsource/hind';
+@import "tailwindcss";
+
+body {
+  font-family: 'Hind', sans-serif;
+  font-family: 'Libre Baskerville', serif;
+}
+
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
