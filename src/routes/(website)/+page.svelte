@@ -157,7 +157,7 @@
     </section>
     
     <!-- pricing -->
-    <section class="bg-base-400">
+    <section class="bg-base-400" id="pricing">
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-20">
           <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2">Pricing</h1>
