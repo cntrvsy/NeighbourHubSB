@@ -18,6 +18,12 @@ export const SignUpSchema = z.object({
   path: ["confirm"]
 })
 
+// Magic Link Schema
+export const MagicLinkSchema = z.object({
+  email: z.string().email().min(3)
+})
+
+
 export type SignUpSchema = typeof SignUpSchema;
 
 // Account Update Schema
