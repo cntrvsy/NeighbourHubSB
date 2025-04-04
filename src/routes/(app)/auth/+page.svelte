@@ -1,6 +1,6 @@
 <script lang="ts">
     // @ts-nocheck
-    import SuperForm from '$lib/components/superforms/Form.svelte';
+    import SuperForm from '$lib/components/superforms/FormNoDebug.svelte';
     import TextField from '$lib/components/superforms/TextField.svelte';
     import { fly,fade } from 'svelte/transition';
   
