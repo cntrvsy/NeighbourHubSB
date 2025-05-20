@@ -45,10 +45,10 @@
         <span class="font-medium">Tier:</span> {currentTier.name}
       </p>
       <p class="text-lg">
-        <span class="font-medium">Price per user:</span> KSh {currentTier.pricePerUser}
+        <span class="font-medium">Price per user in your organization:</span> KSh {currentTier.pricePerUser}
       </p>
       <p class="text-2xl font-bold mt-2">
-        Total: KSh {total.toLocaleString()}/mo
+        Estimated Total: KSh {total.toLocaleString()}/mo
       </p>
     </div>
   

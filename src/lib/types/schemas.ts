@@ -1,30 +1,18 @@
 import { z } from 'zod'
 
-// Sign In Schema
-export const SignInSchema = z.object({
-    email: z.string().email().min(3),
-    password: z.string().min(6)
-  })
-
-export type SignInSchema = typeof SignInSchema;
-
-// Sign Up Schema
-export const SignUpSchema = z.object({
-  email: z.string().email().min(3),
-  password: z.string().min(6),
-  confirm: z.string().min(6)
-}).refine((data) => data.password == data.confirm,{
-  message: "Passwords didn't match",
-  path: ["confirm"]
-})
-
 // Magic Link Schema
 export const MagicLinkSchema = z.object({
   email: z.string().email().min(3)
 })
 
+export type MagicLinkSchema = typeof MagicLinkSchema;
 
-export type SignUpSchema = typeof SignUpSchema;
+
+// Magic Link OTP verify Schema
+export const MagicLinkOTPVerifySchema = z.object({
+  email: z.string().email().min(3),
+  otp: z.string().min(6).max(6)
+})
 
 // Account Update Schema
 export const AccountUpdateSchema = z.object({

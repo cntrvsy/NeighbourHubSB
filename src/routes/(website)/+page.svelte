@@ -41,7 +41,7 @@
   </div>
 </header>
 
-<article class="">
+<section class="">
     <div class="hero pb-64 pt-32">
         <div class="hero-content text-center">
           <div class="max-w-md">
@@ -185,15 +185,25 @@
     </section>
     
     <!-- pricing -->
-    <section class="bg-base-400" id="pricing">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-20">
-          <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2">Pricing</h1>
-          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">All share holders get access to all features regardless of tiers</p>
-          
-        </div>
-        <div class="flex flex-wrap -m-4">
+    <section class="">
+      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10">
           <Pricing />
+        </div>
+        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium ">We approach pricing
+            <br class="hidden lg:inline-block">differently
+          </h1>
+          <p class="mb-8 leading-relaxed font-sans">
+            Charging per user for a Home Owners Application ensures transparency by clearly defining costs based
+             on actual usage. This model eliminates hidden fees, making budgeting straightforward for both 
+             homeowners and management. It fosters accountability, as per "HOA" each user pays for their own access, 
+             reducing unnecessary expenses. Plus, it scales fairly—small communities pay less, while larger groups 
+             invest proportionally. Custom Terms and Fair Usage Policy  still apply.
+          </p>
+          <div class="flex justify-center">
+            <button class="btn btn-primary">Learn More</button>
+          </div>
         </div>
       </div>
     </section>
@@ -224,4 +234,4 @@
         </div>
     </div>
     
-</article>
+  </section>
