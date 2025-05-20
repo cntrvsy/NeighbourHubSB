@@ -21,7 +21,5 @@ export const GET: RequestHandler = async ({ url, locals: { supabase } }) => {
       redirect(303, redirectTo); // Redirect to the protected route if verification is successful
     }
   }
-
-  redirectTo.pathname = '/auth/error'; // Redirect to error page if verification fails
-  redirect(303, redirectTo);
+  redirect(303, '/auth/enterOTP');
 }

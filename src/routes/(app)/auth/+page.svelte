@@ -1,12 +1,10 @@
 <script lang="ts">
-    // @ts-nocheck
-    import SuperForm from '$lib/components/superforms/FormNoDebug.svelte';
-    import TextField from '$lib/components/superforms/TextField.svelte';
-    import { fly,fade } from 'svelte/transition';
-  
+  // @ts-nocheck
+  import SuperForm from '$lib/components/superforms/FormNoDebug.svelte';
+  import TextField from '$lib/components/superforms/TextField.svelte';
 
-    let { data } = $props()
-    let { session, supabase, magicLink_Form} = $derived(data)
+  let { data } = $props()
+  let { session, supabase, magicLink_Form} = $derived(data)
 
 </script>
       
